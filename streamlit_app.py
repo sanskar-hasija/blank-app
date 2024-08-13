@@ -28,18 +28,7 @@ custom_colorscale = [
     [0.8, 'yellow'],      
     [1, 'red']            
 ]
-diff_min_val = bookings['booking_diff'].min()
-diff_max_val = bookings['booking_diff'].max()
-diff_mid_val = 0  
-zero_position = abs(diff_min_val) / (diff_max_val - diff_min_val)
 
-custom_colorscale_diff = [
-    [0, 'blue'],     
-    [zero_position / 2, 'lightblue'],        
-    [zero_position, 'white'],  
-    [zero_position + (1 - zero_position) / 2, '#FFCCCB'],      
-    [1, 'red']            
-]
 
 groups = ['RMA', 'RMB', 'RMC', 'RMD', 'RME', 'RMF', 'RMG', 'RMH', 'RMI', 'RMJ', 'RMK', 'RML', 'RMQ', 'RMT', 'RMZ', 'others']
 RESERVATION_THRESHOLDS = list(range(5, 31))
@@ -118,12 +107,9 @@ fig.update_layout(
     title_x=0.45,
     title_y=0.95,
     updatemenus=[{
-        'type': 'buttons',
-        'direction': 'right',
+        'type': 'dropdown',
         'x': 0.85,
-        'y': 1.25,
-        'showactive': True,
-        'active': 0,
+        'y': 1.1,
         'buttons': buttons
     }],
     sliders=[{
